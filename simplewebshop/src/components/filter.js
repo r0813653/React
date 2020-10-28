@@ -20,7 +20,7 @@ export default class Filter extends React.Component {
 
     render = () => {
 
-        const output = this.props.options.map(s => <div key={s.id}><FilterItem label={s.name} checked={s.checked} recommended={s.recommended} /></div>)
+        const output = this.props.options.map(s => <div key={s.id}><FilterItem changecheckbox={e =>this.props.changecheckbox(this.props.categoryId ,s.id)} label={s.name} checked={s.checked} recommended={s.recommended} /></div>)
 
         return <div>
             <span onClick={this.handleChange}><FontAwesomeIcon icon={this.state.icon}></FontAwesomeIcon>{this.props.title}</span>
@@ -28,7 +28,7 @@ export default class Filter extends React.Component {
         </div>
     }
 
-    handleChange = (e) => {
+    handleChange = () => {
         if (this.state.folded){
             this.setState({
                 folded: false,
@@ -41,4 +41,5 @@ export default class Filter extends React.Component {
             })
         }
     }
+
 }

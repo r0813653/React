@@ -105,6 +105,9 @@ export default class DataAPI {
      * @param optionId Het ID van de optie.
      */
     toggleOptionSelected = (categoryId, optionId) => {
+        console.log(categoryId);
+        console.log(optionId);
+        console.log(this.categories);
         this.categories
             .find(c => c.id === categoryId)
             .options

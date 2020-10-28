@@ -10,7 +10,7 @@ const FilterItem = (props) => {
 
     console.log(props.checked);
     return <label>
-        <input type="checkbox" checked={props.checked}/>{props.label} {recommended}
+        <input type="checkbox" onChange={props.changecheckbox} checked={props.checked}/>{props.label} {recommended}
     </label>
 }
 

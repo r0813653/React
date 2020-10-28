@@ -13,12 +13,19 @@ export default class FilterBar extends React.Component {
 
 
         this.state = {
+           categories: this.api.getCategories(),
         }
     }
 
     render = () => {
-        const output = this.api.getCategories().map(s => <Filter title={s.name} options={s.options} ></Filter>)
-        return <div><p>Teeest</p></div>
+        const output = this.state.categories.map(s => <Filter changecheckbox={this.changeCheckbox} categoryId={s.id} title={s.name} options={s.options} ></Filter>)
+        return <div>{output}</div>
     }
 
+    changeCheckbox = (categoryId, optionId) => {
+        this.api.toggleOptionSelected(categoryId, optionId)
+        this.setState({
+            categories: this.api.getCategories()
+        })
+    }
 }
