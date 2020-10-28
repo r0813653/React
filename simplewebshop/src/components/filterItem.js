@@ -8,6 +8,7 @@ const FilterItem = (props) => {
         recommended = "Aanbevolen";
     }
 
+    console.log(props.checked);
     return <label>
         <input type="checkbox" checked={props.checked}/>{props.label} {recommended}
     </label>
